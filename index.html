@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Гайд по заселению в общежитие | Студгородок КФУ</title>
+  <title>Гайд по заселению | Студгородок КФУ</title>
+
   <style>
     :root {
       --kfu-blue: #005baa;
@@ -13,53 +14,47 @@
       --text: #1f2933;
       --muted: #64748b;
       --white: #ffffff;
-      --card: #ffffff;
       --line: #d9e6f2;
       --shadow: 0 18px 45px rgba(0, 67, 130, 0.12);
-      --radius: 22px;
+      --radius: 24px;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(
+        180deg,
+        #f5f9ff 0%,
+        #ffffff 45%,
+        #f5f9ff 100%
+      );
       color: var(--text);
-      background: linear-gradient(180deg, #f4f9ff 0%, #ffffff 45%, #f4f9ff 100%);
       line-height: 1.6;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
-    }
-
-    .topbar {
-      background: var(--kfu-dark);
-      color: var(--white);
-      font-size: 14px;
-      padding: 10px 6vw;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
+      color: inherit;
     }
 
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.92);
+      z-index: 1000;
+      background: rgba(255,255,255,0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
-      padding: 16px 6vw;
+      padding: 18px 6vw;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 24px;
     }
 
     .logo {
@@ -71,23 +66,26 @@
     }
 
     .logo-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: var(--kfu-blue);
-      color: var(--white);
+      color: white;
+
       display: grid;
       place-items: center;
+
       font-weight: 900;
-      box-shadow: 0 10px 25px rgba(0, 91, 170, 0.25);
+      box-shadow: 0 12px 28px rgba(0,91,170,0.25);
     }
 
     .navlinks {
       display: flex;
-      gap: 18px;
-      font-size: 14px;
-      color: var(--muted);
+      gap: 22px;
       flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
     }
 
     .navlinks a:hover {
@@ -95,7 +93,8 @@
     }
 
     .hero {
-      padding: 72px 6vw 48px;
+      padding: 80px 6vw 50px;
+
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 42px;
@@ -106,257 +105,253 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      color: var(--kfu-blue);
+
       padding: 8px 14px;
       border-radius: 999px;
+
+      background: white;
+      border: 1px solid var(--line);
+
+      color: var(--kfu-blue);
       font-weight: 700;
       font-size: 14px;
-      margin-bottom: 22px;
-      box-shadow: 0 8px 22px rgba(0, 67, 130, 0.08);
+
+      margin-bottom: 24px;
+
+      box-shadow: 0 10px 22px rgba(0,67,130,0.08);
     }
 
     h1 {
-      font-size: clamp(34px, 5vw, 64px);
+      font-size: clamp(38px, 6vw, 70px);
       line-height: 1.05;
+      letter-spacing: -1.6px;
       color: var(--kfu-dark);
-      margin-bottom: 22px;
-      letter-spacing: -1.4px;
+
+      margin-bottom: 24px;
     }
 
     .hero p {
-      font-size: 19px;
       color: var(--muted);
-      max-width: 690px;
+      font-size: 19px;
+      max-width: 700px;
+
       margin-bottom: 30px;
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
     }
 
     .button {
-      padding: 14px 20px;
-      border-radius: 14px;
+      padding: 15px 22px;
+      border-radius: 16px;
       font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid transparent;
       transition: 0.2s ease;
     }
 
-    .button.primary {
-      background: var(--kfu-blue);
-      color: var(--white);
-      box-shadow: 0 14px 28px rgba(0, 91, 170, 0.24);
-    }
-
-    .button.secondary {
-      background: var(--white);
-      color: var(--kfu-blue);
-      border-color: var(--line);
-    }
-
     .button:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+    }
+
+    .primary {
+      background: var(--kfu-blue);
+      color: white;
+      box-shadow: 0 14px 30px rgba(0,91,170,0.25);
+    }
+
+    .secondary {
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--kfu-blue);
     }
 
     .hero-card {
-      background: var(--card);
+      background: white;
       border: 1px solid var(--line);
-      border-radius: 30px;
+      border-radius: 32px;
       padding: 28px;
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
     }
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto auto;
-      width: 170px;
-      height: 170px;
-      background: radial-gradient(circle, rgba(244, 176, 0, 0.26), transparent 68%);
+    .hero-card h3 {
+      color: var(--kfu-dark);
+      margin-bottom: 18px;
+      font-size: 24px;
     }
 
-    .mini-title {
-      color: var(--kfu-blue);
-      font-size: 14px;
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    .arrival-list {
+    .hero-list {
       list-style: none;
       display: grid;
-      gap: 13px;
-      margin-top: 16px;
+      gap: 14px;
     }
 
-    .arrival-list li {
+    .hero-list li {
       display: flex;
       gap: 12px;
-      align-items: flex-start;
-      padding: 13px;
       background: var(--kfu-light);
+      padding: 14px;
       border-radius: 16px;
     }
 
     .check {
-      color: var(--kfu-blue);
       font-weight: 900;
+      color: var(--kfu-blue);
     }
 
     section {
-      padding: 48px 6vw;
+      padding: 60px 6vw;
     }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 24px;
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    .mini {
+      color: var(--kfu-blue);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 900;
+
+      margin-bottom: 12px;
     }
 
     h2 {
-      font-size: clamp(28px, 3vw, 42px);
       color: var(--kfu-dark);
-      line-height: 1.12;
-      letter-spacing: -0.8px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -1px;
     }
 
-    .section-head p {
+    .section-desc {
+      margin-top: 14px;
+      max-width: 700px;
       color: var(--muted);
-      max-width: 520px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
     }
 
     .card {
-      background: var(--card);
+      background: white;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 12px 30px rgba(0, 67, 130, 0.07);
+      padding: 26px;
+
+      box-shadow: 0 12px 28px rgba(0,67,130,0.06);
+      transition: 0.25s ease;
     }
 
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 15px;
-      background: var(--kfu-light);
-      color: var(--kfu-blue);
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+
       display: grid;
       place-items: center;
-      font-size: 24px;
-      margin-bottom: 16px;
+
+      border-radius: 16px;
+
+      background: var(--kfu-light);
+      color: var(--kfu-blue);
+
+      font-size: 26px;
+
+      margin-bottom: 18px;
     }
 
-    h3 {
+    .card h3 {
       color: var(--kfu-dark);
-      font-size: 21px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      font-size: 22px;
     }
 
-    .card p, .card li {
+    .card p,
+    .card li {
       color: var(--muted);
       font-size: 15px;
     }
 
     .card ul {
-      margin-top: 10px;
       padding-left: 18px;
+      margin-top: 10px;
     }
 
     .steps {
-      counter-reset: step;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(4,1fr);
+      gap: 20px;
     }
 
     .step {
       background: var(--kfu-dark);
-      color: var(--white);
+      color: white;
+
       border-radius: var(--radius);
-      padding: 24px;
-      min-height: 210px;
-      position: relative;
-      overflow: hidden;
+      padding: 28px;
     }
 
-    .step::before {
-      counter-increment: step;
-      content: "0" counter(step);
-      display: block;
+    .step-number {
       color: var(--accent);
       font-weight: 900;
-      font-size: 18px;
-      margin-bottom: 38px;
+      margin-bottom: 20px;
     }
 
     .step p {
-      color: #cfe2f6;
+      color: #d8e9fb;
+      margin-top: 10px;
       font-size: 15px;
-      margin-top: 8px;
     }
 
-    .checklist {
+    .contacts {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2,1fr);
       gap: 20px;
     }
 
-    .checklist-box {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 12px 30px rgba(0, 67, 130, 0.06);
+    .contact-card {
+      background: linear-gradient(
+        135deg,
+        var(--kfu-blue),
+        var(--kfu-dark)
+      );
+
+      color: white;
+      border-radius: 28px;
+      padding: 30px;
+
+      box-shadow: var(--shadow);
     }
 
-    .check-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px dashed var(--line);
-      color: var(--text);
+    .contact-card h3 {
+      margin-bottom: 14px;
+      font-size: 24px;
     }
 
-    .check-row:last-child {
-      border-bottom: none;
-    }
-
-    input[type="checkbox"] {
-      width: 19px;
-      height: 19px;
-      accent-color: var(--kfu-blue);
+    .contact-card p {
+      color: #d9ecff;
     }
 
     .faq {
       display: grid;
-      gap: 14px;
+      gap: 16px;
     }
 
     details {
-      background: var(--white);
+      background: white;
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 18px 20px;
-      box-shadow: 0 10px 22px rgba(0, 67, 130, 0.05);
+
+      box-shadow: 0 10px 24px rgba(0,67,130,0.05);
     }
 
     summary {
@@ -366,60 +361,33 @@
     }
 
     details p {
-      color: var(--muted);
       margin-top: 12px;
-    }
-
-    .blue-band {
-      background: linear-gradient(135deg, var(--kfu-blue), var(--kfu-dark));
-      color: var(--white);
-      border-radius: 34px;
-      padding: 42px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      box-shadow: var(--shadow);
-    }
-
-    .blue-band h2 {
-      color: var(--white);
-    }
-
-    .blue-band p {
-      color: #d9ecff;
-    }
-
-    .contact-card {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 22px;
-      padding: 22px;
+      color: var(--muted);
     }
 
     footer {
-      padding: 36px 6vw;
-      color: var(--muted);
+      padding: 40px 6vw;
       text-align: center;
+      color: var(--muted);
       font-size: 14px;
     }
 
-    @media (max-width: 980px) {
+    @media(max-width: 980px) {
+
       .hero,
-      .blue-band,
-      .checklist {
+      .grid,
+      .steps,
+      .contacts {
         grid-template-columns: 1fr;
       }
 
-      .grid,
-      .steps {
-        grid-template-columns: 1fr 1fr;
-      }
     }
 
-    @media (max-width: 640px) {
-      .topbar,
-      .navbar {
+    @media(max-width: 640px) {
+
+      .navbar,
+      .hero,
+      section {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -428,242 +396,394 @@
         display: none;
       }
 
-      .hero,
-      section {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .grid,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        align-items: flex-start;
-        flex-direction: column;
-      }
     }
   </style>
 </head>
+
 <body>
+
   <nav class="navbar">
+
     <a href="#top" class="logo">
       <span class="logo-mark">КФУ</span>
-      <span>Студгородок (СГ №4)<br />Гайд первокурсника</span>
+      <span>
+        Студгородок<br>
+        Гайд первокурсника
+      </span>
     </a>
+
     <div class="navlinks">
-      <a href="#prepare">Подготовка</a>
-      <a href="#arrival">Заселение</a>
-      <a href="#life">Быт</a>
-      <a href="#checklists">Чек-листы</a>
+      <a href="#before">Перед заселением</a>
+      <a href="#arrival">В день заселения</a>
+      <a href="#life">Общага без стресса</a>
+      <a href="#contacts">Полезные контакты</a>
       <a href="#faq">FAQ</a>
     </div>
+
   </nav>
 
   <main id="top">
+
     <header class="hero">
+
       <div>
-        <div class="badge">🎓 Старт жизни в общежитии без паники</div>
-        <h1>Гайд по заселению в общежитие КФУ</h1>
-        <p>
-          Короткий и понятный сайт для студентов: какие документы подготовить, что взять с собой,
-          что проверить в комнате, как договориться с соседями и как пережить первые недели в общаге.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#checklists">Открыть чек-листы →</a>
-          <a class="button secondary" href="#arrival">Что делать в день заселения</a>
+
+        <div class="badge">
+          🎓 Заселение без паники
         </div>
+
+        <h1>
+          Гайд по жизни в общежитии КФУ
+        </h1>
+
+        <p>
+          Всё самое важное для первокурсника:
+          документы, переезд, соседи, бытовые лайфхаки,
+          безопасность и адаптация в первые недели.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#before" class="button primary">
+            Начать подготовку
+          </a>
+
+          <a href="#faq" class="button secondary">
+            Частые вопросы
+          </a>
+        </div>
+
       </div>
 
       <aside class="hero-card">
-        <div class="mini-title">Самое важное в первый день</div>
-        <h3>Не распаковывай всё сразу — сначала проверь комнату</h3>
-        <ul class="arrival-list">
-          <li><span class="check">✓</span><span>Сфотографируй мебель, стены, окна, розетки и поломки.</span></li>
-          <li><span class="check">✓</span><span>Уточни правила проживания, пропускной режим и порядок стирки.</span></li>
-          <li><span class="check">✓</span><span>Познакомься с соседями и договорись о базовых правилах комнаты.</span></li>
+
+        <h3>
+          Самое важное в первый день
+        </h3>
+
+        <ul class="hero-list">
+
+          <li>
+            <span class="check">✓</span>
+            <span>
+              Сфотографируй комнату и все дефекты.
+            </span>
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            <span>
+              Узнай правила кухни, стирки и прохода.
+            </span>
+          </li>
+
+          <li>
+            <span class="check">✓</span>
+            <span>
+              Сразу договорись с соседями о быте.
+            </span>
+          </li>
+
         </ul>
+
       </aside>
+
     </header>
 
-    <section id="prepare">
-      <div class="section-head">
-        <div>
-          <div class="mini-title">01 · Подготовка</div>
-          <h2>Что сделать до переезда</h2>
+    <section id="before">
+
+      <div class="section-title">
+
+        <div class="mini">
+          01 · Перед заселением
         </div>
-        <p>Лучше подготовить базовые вещи заранее, чтобы в день заселения не бегать по магазинам и не искать документы в чемодане.</p>
+
+        <h2>
+          Подготовь всё заранее
+        </h2>
+
+        <p class="section-desc">
+          Лучше собрать базовые вещи и документы до переезда,
+          чтобы не бегать по магазинам в первый день.
+        </p>
+
       </div>
 
       <div class="grid">
+
         <article class="card">
-          <div class="card-icon">📄</div>
+
+          <div class="icon">📄</div>
+
           <h3>Документы</h3>
-          <p>Сложи всё в одну папку: паспорт, студенческий, договор/направление на заселение, меддокументы, фото и копии.</p>
+
+          <p>
+            Паспорт, студенческий, направление,
+            медицинские документы, фото и копии.
+          </p>
+
         </article>
+
         <article class="card">
-          <div class="card-icon">💳</div>
-          <h3>Деньги</h3>
-          <p>Подготовь карту, немного наличных и резерв на первые покупки: вода, еда, бытовая химия, проезд.</p>
+
+          <div class="icon">🎒</div>
+
+          <h3>Что взять</h3>
+
+          <p>
+            Постельное бельё, тапочки, аптечка,
+            удлинитель, контейнеры и бытовые мелочи.
+          </p>
+
         </article>
+
         <article class="card">
-          <div class="card-icon">🎒</div>
-          <h3>Вещи</h3>
-          <p>Главное: удлинитель, тапочки для душа, контейнеры, полотенце, постельное бельё, аптечка и замок.</p>
+
+          <div class="icon">💳</div>
+
+          <h3>Финансы</h3>
+
+          <p>
+            Подготовь карту, немного наличных
+            и резерв на первые покупки.
+          </p>
+
         </article>
+
       </div>
+
     </section>
 
     <section id="arrival">
-      <div class="section-head">
-        <div>
-          <div class="mini-title">02 · День заселения</div>
-          <h2>Порядок действий</h2>
+
+      <div class="section-title">
+
+        <div class="mini">
+          02 · В день заселения
         </div>
-        <p>В первые часы важно не суетиться: сначала оформление и осмотр, потом — быт, соседи и покупки.</p>
+
+        <h2>
+          Что делать по шагам
+        </h2>
+
       </div>
 
       <div class="steps">
+
         <div class="step">
+          <div class="step-number">01</div>
+
           <h3>Оформи документы</h3>
-          <p>Получение ключей, пропуска, инструктаж и уточнение правил проживания.</p>
+
+          <p>
+            Получи ключи, пропуск
+            и уточни правила проживания.
+          </p>
         </div>
+
         <div class="step">
-          <h3>Осмотри комнату</h3>
-          <p>Проверь окна, мебель, розетки, матрас, замки, свет и общее состояние.</p>
+          <div class="step-number">02</div>
+
+          <h3>Проверь комнату</h3>
+
+          <p>
+            Осмотри мебель, окна,
+            розетки и матрас.
+          </p>
         </div>
+
         <div class="step">
+          <div class="step-number">03</div>
+
           <h3>Зафиксируй дефекты</h3>
-          <p>Сделай фото поломок и уточни, кому сообщать о проблемах.</p>
+
+          <p>
+            Сфотографируй повреждения
+            и сообщи администрации.
+          </p>
         </div>
+
         <div class="step">
+          <div class="step-number">04</div>
+
           <h3>Организуй минимум</h3>
-          <p>Постель, вода, перекус, зарядка телефона и место для документов.</p>
+
+          <p>
+            Постель, вода, зарядка,
+            документы и перекус.
+          </p>
         </div>
+
       </div>
+
     </section>
 
     <section id="life">
-      <div class="section-head">
-        <div>
-          <div class="mini-title">03 · Жизнь в общаге</div>
-          <h2>Быт, соседи и безопасность</h2>
+
+      <div class="section-title">
+
+        <div class="mini">
+          03 · Общага без стресса
         </div>
-        <p>Общежитие становится комфортнее, когда есть понятные правила, личные границы и базовая организация пространства.</p>
+
+        <h2>
+          Быт, соседи и безопасность
+        </h2>
+
       </div>
 
       <div class="grid">
+
         <article class="card">
-          <div class="card-icon">🛏️</div>
+
+          <div class="icon">🛏️</div>
+
           <h3>Комната</h3>
+
           <ul>
-            <li>Храни вещи вертикально и в коробках.</li>
-            <li>Используй органайзеры под кровать.</li>
-            <li>Держи документы отдельно от бытовых вещей.</li>
+            <li>Используй органайзеры.</li>
+            <li>Храни вещи вертикально.</li>
+            <li>Не захламляй пространство.</li>
           </ul>
+
         </article>
+
         <article class="card">
-          <div class="card-icon">👥</div>
+
+          <div class="icon">👥</div>
+
           <h3>Соседи</h3>
+
           <ul>
-            <li>Сразу обсуди уборку, гостей и тишину.</li>
-            <li>Не бери чужие вещи без разрешения.</li>
-            <li>Конфликты решай спокойно и письменно фиксируй договоренности.</li>
+            <li>Обсуди уборку и гостей.</li>
+            <li>Уважай личные границы.</li>
+            <li>Решай конфликты спокойно.</li>
           </ul>
+
         </article>
+
         <article class="card">
-          <div class="card-icon">🔌</div>
+
+          <div class="icon">🔌</div>
+
           <h3>Безопасность</h3>
+
           <ul>
             <li>Не перегружай удлинители.</li>
+            <li>Закрывай комнату.</li>
             <li>Не оставляй технику без присмотра.</li>
-            <li>Закрывай дверь и не оставляй документы на виду.</li>
           </ul>
+
         </article>
+
       </div>
+
     </section>
 
-    <section id="checklists">
-      <div class="section-head">
-        <div>
-          <div class="mini-title">04 · Чек-листы</div>
-          <h2>Отметь, что уже готово</h2>
+    <section id="contacts">
+
+      <div class="section-title">
+
+        <div class="mini">
+          04 · Полезные контакты
         </div>
-        <p>Можно использовать прямо на сайте перед поездкой или распечатать как памятку.</p>
+
+        <h2>
+          К кому обращаться
+        </h2>
+
       </div>
 
-      <div class="checklist">
-        <div class="checklist-box">
-          <h3>Что взять с собой</h3>
-          <label class="check-row"><input type="checkbox" /> Паспорт, студенческий, документы</label>
-          <label class="check-row"><input type="checkbox" /> Постельное бельё и полотенца</label>
-          <label class="check-row"><input type="checkbox" /> Тапочки для душа</label>
-          <label class="check-row"><input type="checkbox" /> Удлинитель и зарядки</label>
-          <label class="check-row"><input type="checkbox" /> Контейнеры, кружка, приборы</label>
-          <label class="check-row"><input type="checkbox" /> Аптечка и личные лекарства</label>
-        </div>
+      <div class="contacts">
 
-        <div class="checklist-box">
-          <h3>Первый день</h3>
-          <label class="check-row"><input type="checkbox" /> Получить ключи и пропуск</label>
-          <label class="check-row"><input type="checkbox" /> Проверить комнату и мебель</label>
-          <label class="check-row"><input type="checkbox" /> Сфотографировать дефекты</label>
-          <label class="check-row"><input type="checkbox" /> Узнать правила стирки и кухни</label>
-          <label class="check-row"><input type="checkbox" /> Познакомиться с соседями</label>
-          <label class="check-row"><input type="checkbox" /> Купить воду и базовую еду</label>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="blue-band">
-        <div>
-          <div class="mini-title" style="color:#f7ca45;">Полезный блок</div>
-          <h2>Главное правило общаги: сначала договориться, потом жить</h2>
-          <p>
-            Соседи, кухня, душ, уборка, гости и шум — всё проще, если правила проговорены заранее.
-            Это не делает жизнь скучной, зато экономит нервы.
-          </p>
-        </div>
         <div class="contact-card">
-          <h3 style="color:white;">Куда обращаться при проблемах</h3>
-          <p>Комендант, администрация общежития, студсовет, куратор группы или ответственное подразделение студгородка.</p>
+
+          <h3>
+            Администрация общежития
+          </h3>
+
+          <p>
+            Вопросы заселения, комнаты,
+            бытовых проблем и пропусков.
+          </p>
+
         </div>
+
+        <div class="contact-card">
+
+          <h3>
+            Студсовет / куратор
+          </h3>
+
+          <p>
+            Помощь первокурсникам,
+            адаптация и студенческие вопросы.
+          </p>
+
+        </div>
+
       </div>
+
     </section>
 
     <section id="faq">
-      <div class="section-head">
-        <div>
-          <div class="mini-title">05 · FAQ</div>
-          <h2>Частые вопросы</h2>
+
+      <div class="section-title">
+
+        <div class="mini">
+          05 · FAQ
         </div>
+
+        <h2>
+          Частые вопросы
+        </h2>
+
       </div>
 
       <div class="faq">
+
         <details>
-          <summary>Что делать, если сосед не убирается?</summary>
-          <p>Сначала спокойно обсудить и предложить график уборки. Если договориться не получается, зафиксировать проблему и обратиться к ответственному лицу в общежитии.</p>
+          <summary>
+            Что делать, если сосед не убирается?
+          </summary>
+
+          <p>
+            Спокойно обсудить график уборки
+            и договориться о правилах.
+          </p>
         </details>
+
         <details>
-          <summary>Что точно не стоит брать с собой?</summary>
-          <p>Слишком много одежды, лишнюю посуду, громоздкую технику и вещи “на всякий случай”, которые займут половину комнаты.</p>
+          <summary>
+            Что не стоит брать с собой?
+          </summary>
+
+          <p>
+            Лишнюю технику, слишком много одежды
+            и громоздкие вещи.
+          </p>
         </details>
+
         <details>
-          <summary>Как не потерять вещи в общей прачечной?</summary>
-          <p>Используй мешок для стирки, не оставляй вещи надолго после окончания стирки и подпиши свою корзину или пакет.</p>
+          <summary>
+            Как быстрее адаптироваться?
+          </summary>
+
+          <p>
+            Найти режим, познакомиться с соседями
+            и постепенно обустроить пространство.
+          </p>
         </details>
-        <details>
-          <summary>Как быстрее адаптироваться?</summary>
-          <p>Сделай комнату удобной, найди привычный режим, познакомься с соседями и не пытайся сразу жить идеально. Первые недели — период настройки.</p>
-        </details>
+
       </div>
+
     </section>
+
   </main>
 
   <footer>
-    Макет сайта-гайда для студентов КФУ. Не является официальным сайтом университета.
+    Макет студенческого сайта-гайда КФУ.
+    Не является официальным сайтом университета.
   </footer>
+
 </body>
 </html>
