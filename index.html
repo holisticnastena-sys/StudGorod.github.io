@@ -3,787 +3,438 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Гайд по заселению | Студгородок КФУ</title>
-
-  <style>
-    :root {
-      --kfu-blue: #005baa;
-      --kfu-dark: #08345f;
-      --kfu-light: #eef6ff;
-      --accent: #f4b000;
-      --text: #1f2933;
-      --muted: #64748b;
-      --white: #ffffff;
-      --line: #d9e6f2;
-      --shadow: 0 18px 45px rgba(0, 67, 130, 0.12);
-      --radius: 24px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(
-        180deg,
-        #f5f9ff 0%,
-        #ffffff 45%,
-        #f5f9ff 100%
-      );
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      padding: 18px 6vw;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      color: var(--kfu-dark);
-    }
-
-    .logo-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: var(--kfu-blue);
-      color: white;
-
-      display: grid;
-      place-items: center;
-
-      font-weight: 900;
-      box-shadow: 0 12px 28px rgba(0,91,170,0.25);
-    }
-
-    .navlinks {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .navlinks a:hover {
-      color: var(--kfu-blue);
-    }
-
-    .hero {
-      padding: 80px 6vw 50px;
-
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-
-      padding: 8px 14px;
-      border-radius: 999px;
-
-      background: white;
-      border: 1px solid var(--line);
-
-      color: var(--kfu-blue);
-      font-weight: 700;
-      font-size: 14px;
-
-      margin-bottom: 24px;
-
-      box-shadow: 0 10px 22px rgba(0,67,130,0.08);
-    }
-
-    h1 {
-      font-size: clamp(38px, 6vw, 70px);
-      line-height: 1.05;
-      letter-spacing: -1.6px;
-      color: var(--kfu-dark);
-
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 19px;
-      max-width: 700px;
-
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      padding: 15px 22px;
-      border-radius: 16px;
-      font-weight: 800;
-      transition: 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-    }
-
-    .primary {
-      background: var(--kfu-blue);
-      color: white;
-      box-shadow: 0 14px 30px rgba(0,91,170,0.25);
-    }
-
-    .secondary {
-      background: white;
-      border: 1px solid var(--line);
-      color: var(--kfu-blue);
-    }
-
-    .hero-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-card h3 {
-      color: var(--kfu-dark);
-      margin-bottom: 18px;
-      font-size: 24px;
-    }
-
-    .hero-list {
-      list-style: none;
-      display: grid;
-      gap: 14px;
-    }
-
-    .hero-list li {
-      display: flex;
-      gap: 12px;
-      background: var(--kfu-light);
-      padding: 14px;
-      border-radius: 16px;
-    }
-
-    .check {
-      font-weight: 900;
-      color: var(--kfu-blue);
-    }
-
-    section {
-      padding: 60px 6vw;
-    }
-
-    .section-title {
-      margin-bottom: 30px;
-    }
-
-    .mini {
-      color: var(--kfu-blue);
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 900;
-
-      margin-bottom: 12px;
-    }
-
-    h2 {
-      color: var(--kfu-dark);
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.1;
-      letter-spacing: -1px;
-    }
-
-    .section-desc {
-      margin-top: 14px;
-      max-width: 700px;
-      color: var(--muted);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-
-      box-shadow: 0 12px 28px rgba(0,67,130,0.06);
-      transition: 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .icon {
-      width: 54px;
-      height: 54px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 16px;
-
-      background: var(--kfu-light);
-      color: var(--kfu-blue);
-
-      font-size: 26px;
-
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      color: var(--kfu-dark);
-      margin-bottom: 12px;
-      font-size: 22px;
-    }
-
-    .card p,
-    .card li {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .card ul {
-      padding-left: 18px;
-      margin-top: 10px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 20px;
-    }
-
-    .step {
-      background: var(--kfu-dark);
-      color: white;
-
-      border-radius: var(--radius);
-      padding: 28px;
-    }
-
-    .step-number {
-      color: var(--accent);
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-
-    .step p {
-      color: #d8e9fb;
-      margin-top: 10px;
-      font-size: 15px;
-    }
-
-    .contacts {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 20px;
-    }
-
-    .contact-card {
-      background: linear-gradient(
-        135deg,
-        var(--kfu-blue),
-        var(--kfu-dark)
-      );
-
-      color: white;
-      border-radius: 28px;
-      padding: 30px;
-
-      box-shadow: var(--shadow);
-    }
-
-    .contact-card h3 {
-      margin-bottom: 14px;
-      font-size: 24px;
-    }
-
-    .contact-card p {
-      color: #d9ecff;
-    }
-
-    .faq {
-      display: grid;
-      gap: 16px;
-    }
-
-    details {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 20px;
-
-      box-shadow: 0 10px 24px rgba(0,67,130,0.05);
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 800;
-      color: var(--kfu-dark);
-    }
-
-    details p {
-      margin-top: 12px;
-      color: var(--muted);
-    }
-
-    footer {
-      padding: 40px 6vw;
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    @media(max-width: 980px) {
-
-      .hero,
-      .grid,
-      .steps,
-      .contacts {
-        grid-template-columns: 1fr;
-      }
-
-    }
-
-    @media(max-width: 640px) {
-
-      .navbar,
-      .hero,
-      section {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .navlinks {
-        display: none;
-      }
-
-    }
-  </style>
+  <title>СГ №4 КФУ</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
+<script src="js/faq.js"></script>
 <body>
 
-  <nav class="navbar">
+<header class="header">
+  <div class="logo">СГ №4 КФУ</div>
 
-    <a href="#top" class="logo">
-      <span class="logo-mark">КФУ</span>
-      <span>
-        Студгородок<br>
-        Гайд первокурсника
-      </span>
-    </a>
+  <button class="burger" id="burger">☰</button>
 
-    <div class="navlinks">
-      <a href="#before">Перед заселением</a>
-      <a href="#arrival">В день заселения</a>
-      <a href="#life">Общага без стресса</a>
-      <a href="#contacts">Полезные контакты</a>
-      <a href="#faq">FAQ</a>
+  <nav class="nav" id="nav">
+    <button data-page="home" class="nav-link active">Главная</button>
+    <button data-page="faq" class="nav-link">Частые вопросы</button>
+    <button data-page="international" class="nav-link">Иностранным студентам</button>
+    <button data-page="moving" class="nav-link">Заселяющимся</button>
+    <a href="https://vk.com/4obshagakfu" target="_blank" class="nav-link vk">VK</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="home" class="page active">
+    <div class="hero">
+      <h1>Все для комфортной жизни в общежитии</h1>
+      <p>Быстрый доступ к сервисам, контактам, правилам и ответам на вопросы студентов СГ №4 КФУ.</p>
     </div>
 
-  </nav>
+    <div class="cards">
+      <a href="https://cabinet.unimetriq.com/client/8404676dc45d0daa39284b85689e2aed" target="_blank" class="card"> 🧺<span>Стиральные машины</span> </a>
+      <button class="card" data-page="faq">❓<span>Частые вопросы</span></button>
+      <button class="card" data-page="international">🌍<span>Иностранным студентам</span></button>
+      <button class="card" data-page="moving">🎒<span>Заселяющимся</span></button>
+    </div>
 
-  <main id="top">
+    <section class="about">
+      <h2>Об общежитии</h2>
+      <p>
+        Студенческое общежитие №4 КФУ — пространство для проживания студентов, где важно быстро находить бытовую, справочную и организационную информацию.
+      </p>
+    </section>
+  </section>
 
-    <header class="hero">
+<section id="faq" class="page">
 
-      <div>
+  <div class="page-header">
 
-        <div class="badge">
-          🎓 Заселение без паники
-        </div>
+    <h1>
+      Частые вопросы
+    </h1>
 
-        <h1>
-          Гайд по жизни в общежитии КФУ
-        </h1>
+    <p>
+      Ответы на самые популярные вопросы студентов СГ №4 КФУ
+    </p>
+
+  </div>
+
+
+  <!-- Категории FAQ -->
+
+  <div class="faq-categories">
+
+
+    <button 
+      class="faq-category"
+      onclick="openFaq('living')">
+
+      <span>🏠</span>
+
+      <h3>
+        Проживание
+      </h3>
+
+      <p>
+        Правила, комнаты, гости
+      </p>
+
+    </button>
+
+
+
+    <button 
+      class="faq-category"
+      onclick="openFaq('life')">
+
+      <span>🧺</span>
+
+      <h3>
+        Бытовые вопросы
+      </h3>
+
+      <p>
+        Стирка, кухня, интернет
+      </p>
+
+    </button>
+
+
+
+    <button 
+      class="faq-category"
+      onclick="openFaq('problem')">
+
+      <span>🛠</span>
+
+      <h3>
+        Проблемы и обращения
+      </h3>
+
+      <p>
+        Поломки и заявки
+      </p>
+
+    </button>
+
+
+
+    <button 
+      class="faq-category"
+      onclick="openFaq('docs')">
+
+      <span>📄</span>
+
+      <h3>
+        Документы
+      </h3>
+
+      <p>
+        Справки и заявления
+      </p>
+
+    </button>
+
+
+
+
+    <button 
+      class="faq-category"
+      onclick="openFaq('exit')">
+
+      <span>🚪</span>
+
+      <h3>
+        Выселение
+      </h3>
+
+      <p>
+        Выезд и сдача комнаты
+      </p>
+
+    </button>
+
+
+
+
+    <button 
+      class="faq-category"
+      onclick="openFaq('sos')">
+
+      <span>🚨</span>
+
+      <h3>
+        Срочные ситуации
+      </h3>
+
+      <p>
+        Помощь и контакты
+      </p>
+
+    </button>
+
+
+  </div>
+
+
+
+
+  <!-- Ответы -->
+
+
+  <div class="faq-content">
+
+
+    <!-- проживание -->
+
+    <div 
+      class="faq-block"
+      id="living">
+
+
+      <h2>
+        🏠 Проживание
+      </h2>
+
+
+      <details>
+        <summary>
+          Какие основные правила в общежитии?
+        </summary>
+        <p>
+          Информация о правилах проживания в общежитии.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Можно ли переселиться в другую комнату?
+        </summary>
+        <p>
+          Для переселения необходимо обратиться к администрации общежития.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          Можно ли приглашать гостей?
+        </summary>
+        <p>
+          Информация о правилах посещения гостей.
+        </p>
+      </details>
+    </div>
+
+
+
+
+
+    <!-- быт -->
+    <div 
+      class="faq-block"
+      id="life">
+      <h2>
+        🧺 Бытовые вопросы
+      </h2>
+      <details>
+        <summary>
+          Где находятся стиральные машины?
+        </summary>
+        <p>
+          Информация о расположении стиральных машин.
+        </p>
+
+      </details>
+
+
+    </div>
+
+
+
+
+
+    <!-- проблемы -->
+
+
+    <div 
+      class="faq-block"
+      id="problem">
+
+
+      <h2>
+        🛠 Проблемы и обращения
+      </h2>
+
+
+      <details>
+
+        <summary>
+          Что делать если что-то сломалось?
+        </summary>
 
         <p>
-          Всё самое важное для первокурсника:
-          документы, переезд, соседи, бытовые лайфхаки,
-          безопасность и адаптация в первые недели.
+          Необходимо оставить заявку ответственному лицу.
         </p>
 
-        <div class="hero-buttons">
-          <a href="#before" class="button primary">
-            Начать подготовку
-          </a>
+      </details>
 
-          <a href="#faq" class="button secondary">
-            Частые вопросы
-          </a>
-        </div>
 
-      </div>
-
-      <aside class="hero-card">
-
-        <h3>
-          Самое важное в первый день
-        </h3>
-
-        <ul class="hero-list">
-
-          <li>
-            <span class="check">✓</span>
-            <span>
-              Сфотографируй комнату и все дефекты.
-            </span>
-          </li>
-
-          <li>
-            <span class="check">✓</span>
-            <span>
-              Узнай правила кухни, стирки и прохода.
-            </span>
-          </li>
-
-          <li>
-            <span class="check">✓</span>
-            <span>
-              Сразу договорись с соседями о быте.
-            </span>
-          </li>
-
-        </ul>
-
-      </aside>
-
-    </header>
-
-    <section id="before">
-
-      <div class="section-title">
-
-        <div class="mini">
-          01 · Перед заселением
-        </div>
-
-        <h2>
-          Подготовь всё заранее
-        </h2>
-
-        <p class="section-desc">
-          Лучше собрать базовые вещи и документы до переезда,
-          чтобы не бегать по магазинам в первый день.
+    </div>
+    <!-- документы -->
+    <div 
+      class="faq-block"
+      id="docs">
+      <h2>
+        📄 Документы
+      </h2>
+      <details>
+        <summary>
+          Где получить справку?
+        </summary>
+        <p>
+          Информация о получении документов.
         </p>
-
-      </div>
-
-      <div class="grid">
-
-        <article class="card">
-
-          <div class="icon">📄</div>
-
-          <h3>Документы</h3>
-
-          <p>
-            Паспорт, студенческий, направление,
-            медицинские документы, фото и копии.
-          </p>
-
-        </article>
-
-        <article class="card">
-
-          <div class="icon">🎒</div>
-
-          <h3>Что взять</h3>
-
-          <p>
-            Постельное бельё, тапочки, аптечка,
-            удлинитель, контейнеры и бытовые мелочи.
-          </p>
-
-        </article>
-
-        <article class="card">
-
-          <div class="icon">💳</div>
-
-          <h3>Финансы</h3>
-
-          <p>
-            Подготовь карту, немного наличных
-            и резерв на первые покупки.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-    <section id="arrival">
-
-      <div class="section-title">
-
-        <div class="mini">
-          02 · В день заселения
-        </div>
-
-        <h2>
-          Что делать по шагам
-        </h2>
-
-      </div>
-
-      <div class="steps">
-
-        <div class="step">
-          <div class="step-number">01</div>
-
-          <h3>Оформи документы</h3>
-
-          <p>
-            Получи ключи, пропуск
-            и уточни правила проживания.
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">02</div>
-
-          <h3>Проверь комнату</h3>
-
-          <p>
-            Осмотри мебель, окна,
-            розетки и матрас.
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">03</div>
-
-          <h3>Зафиксируй дефекты</h3>
-
-          <p>
-            Сфотографируй повреждения
-            и сообщи администрации.
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">04</div>
-
-          <h3>Организуй минимум</h3>
-
-          <p>
-            Постель, вода, зарядка,
-            документы и перекус.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section id="life">
-
-      <div class="section-title">
-
-        <div class="mini">
-          03 · Общага без стресса
-        </div>
-
-        <h2>
-          Быт, соседи и безопасность
-        </h2>
-
-      </div>
-
-      <div class="grid">
-
-        <article class="card">
-
-          <div class="icon">🛏️</div>
-
-          <h3>Комната</h3>
-
-          <ul>
-            <li>Используй органайзеры.</li>
-            <li>Храни вещи вертикально.</li>
-            <li>Не захламляй пространство.</li>
-          </ul>
-
-        </article>
-
-        <article class="card">
-
-          <div class="icon">👥</div>
-
-          <h3>Соседи</h3>
-
-          <ul>
-            <li>Обсуди уборку и гостей.</li>
-            <li>Уважай личные границы.</li>
-            <li>Решай конфликты спокойно.</li>
-          </ul>
-
-        </article>
-
-        <article class="card">
-
-          <div class="icon">🔌</div>
-
-          <h3>Безопасность</h3>
-
-          <ul>
-            <li>Не перегружай удлинители.</li>
-            <li>Закрывай комнату.</li>
-            <li>Не оставляй технику без присмотра.</li>
-          </ul>
-
-        </article>
-
-      </div>
-
-    </section>
-
-    <section id="contacts">
-
-      <div class="section-title">
-
-        <div class="mini">
-          04 · Полезные контакты
-        </div>
-
-        <h2>
-          К кому обращаться
-        </h2>
-
-      </div>
-
-      <div class="contacts">
-
-        <div class="contact-card">
-
-          <h3>
-            Администрация общежития
-          </h3>
-
-          <p>
-            Вопросы заселения, комнаты,
-            бытовых проблем и пропусков.
-          </p>
-
-        </div>
-
-        <div class="contact-card">
-
-          <h3>
-            Студсовет / куратор
-          </h3>
-
-          <p>
-            Помощь первокурсникам,
-            адаптация и студенческие вопросы.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <section id="faq">
-
-      <div class="section-title">
-
-        <div class="mini">
-          05 · FAQ
-        </div>
-
-        <h2>
-          Частые вопросы
-        </h2>
-
-      </div>
-
-      <div class="faq">
-
-        <details>
-          <summary>
-            Что делать, если сосед не убирается?
-          </summary>
-
-          <p>
-            Спокойно обсудить график уборки
-            и договориться о правилах.
-          </p>
-        </details>
-
-        <details>
-          <summary>
-            Что не стоит брать с собой?
-          </summary>
-
-          <p>
-            Лишнюю технику, слишком много одежды
-            и громоздкие вещи.
-          </p>
-        </details>
-
-        <details>
-          <summary>
-            Как быстрее адаптироваться?
-          </summary>
-
-          <p>
-            Найти режим, познакомиться с соседями
-            и постепенно обустроить пространство.
-          </p>
-        </details>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-    Макет студенческого сайта-гайда КФУ.
-    Не является официальным сайтом университета.
-  </footer>
-
+      </details>
+    </div>
+
+    <!-- выселение -->
+    <div 
+      class="faq-block"
+      id="exit">
+      <h2>
+        🚪 Выселение
+      </h2>
+
+  <details>
+    <summary>
+      Как проходит выселение из общежития?
+    </summary>
+    <p>
+      При выселении необходимо заранее обратиться к администрации 
+      общежития и уточнить порядок действий.
+      Обычно студент освобождает комнату, приводит её в порядок,
+      возвращает полученное имущество и проходит необходимые отметки.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      Что нужно сделать перед выездом?
+    </summary>
+    <p>
+      Перед выездом рекомендуется:
+    </p>
+    <ul>
+      <li>убрать комнату и личные вещи;</li>
+      <li>проверить состояние мебели и имущества;</li>
+      <li>сдать полученный инвентарь;</li>
+      <li>оформить необходимые документы у администрации.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>
+      Нужно ли сдавать комнату?
+    </summary>
+    <p>
+      Да. Комната передается администрации общежития
+      в чистом состоянии вместе с закрепленным имуществом.
+    </p>
+  </details>
+
+  <details> 
+    <summary>
+      Когда нужно освободить комнату?
+    </summary>
+    <p>
+      После прекращения действия договора проживания место
+      необходимо освободить в установленный срок.
+      По правилам общежитий КФУ при расторжении договора —
+      в течение 3 дней.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      Можно ли выселиться по собственному желанию?
+    </summary>
+    <p>
+      Да. Студент может оформить выселение по личному заявлению.
+      Для этого необходимо обратиться к администрации общежития.
+    </p>
+  </details>
+
+  <details>
+    <summary>
+      Что будет, если повредить имущество?
+    </summary>
+    <p>
+      Перед выселением проверяется состояние комнаты и имущества.
+      За повреждение или потерю закрепленного имущества студент
+      несет ответственность согласно правилам проживания.
+    </p>
+  </details>
+
+
+</div>
+
+    <!-- срочные -->
+    <div 
+      class="faq-block"
+      id="sos">
+      <h2>
+        🚨 Срочные ситуации
+      </h2>
+      <details>
+        <summary>
+          Что делать при аварии?
+        </summary>
+        <p>
+          Обратитесь к ответственным сотрудникам.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+  <section id="international" class="page">
+    <h1>For international students</h1>
+    <p>Information for international students living in Dormitory №4.</p>
+    <div class="info-grid">
+      <div class="info-card"><h3>Before arrival</h3><p>Documents and preparation.</p></div>
+      <div class="info-card"><h3>First days</h3><p>Check-in process and basic rules.</p></div>
+      <div class="info-card"><h3>Dormitory life</h3><p>Laundry, kitchen, internet and contacts.</p></div>
+    </div>
+  </section>
+
+  <section id="moving" class="page">
+    <h1>Заселяющимся</h1>
+    <div class="timeline">
+      <div><b>1. До приезда</b><p>Подготовьте документы и вещи.</p></div>
+      <div><b>2. День заселения</b><p>Уточните порядок заселения и обратитесь к ответственным лицам.</p></div>
+      <div><b>3. Первые дни</b><p>Ознакомьтесь с правилами и инфраструктурой общежития.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<button class="chatbot-btn" id="chatbotBtn">💬</button>
+
+<div class="chatbot-window" id="chatbotWindow">
+  <div class="chatbot-header">
+    <b>Помощник СГ №4</b>
+    <button id="closeChat">×</button>
+  </div>
+  <div class="chatbot-body">
+    <p>Здравствуйте! Я помогу найти информацию по общежитию.</p>
+    <button>Где стиралки?</button>
+    <button>Куда обратиться?</button>
+    <button>Какие документы нужны?</button>
+  </div>
+</div>
+
+<script src="js/navigation.js"></script>
+<script src="js/chatbot.js"></script>
 </body>
 </html>
