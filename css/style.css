@@ -258,9 +258,19 @@ summary {
     align-items: stretch;
     padding: 16px;
     border-radius: 20px;
-    background: white;
+    background: rgba(2,27,29,.98);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,.1);
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
   }
+
+  .nav-link { 
+  color: white;}
+
+  .nav-link:hover,
+  .nav-link.active {
+  background: #0f766e;
+  color: white;}
 
   .nav.open {
     display: flex;
